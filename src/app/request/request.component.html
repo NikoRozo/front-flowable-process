@@ -1,28 +1,28 @@
-<h1>Solicitud de Vacaciones</h1>
+<h1>{{ title }}</h1>
 
-<form>
+<form #requestForm="ngForm">
+    <div class="form-group">
+        <label for="assignee">Asignar</label>
+        <select class="form-control" name="assignee" id="assignee" [(ngModel)]="holRequest.assignee">
+            <option>nrozo</option>
+            <option>jbarrez</option>
+            <option>trademakers</option>
+        </select>
+    </div>
     <div class="form-group">
       <label for="employee">Nombre del Funcionario</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="employeeHelp">
+      <input type="text" class="form-control" name="employee" id="exampleInputEmail1" aria-describedby="employeeHelp" [(ngModel)]="holRequest.employee">
       <small id="employeeHelp" class="form-text text-muted">Nombre del funcionario que pide las vacaciones.</small>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">Días</span>
         </div>
-        <input type="text" class="form-control" aria-label="El Valor debe se numerico" placeholder="de Vacaciones">
+        <input type="text" class="form-control" name="days" aria-label="El Valor debe se numerico" placeholder="de Vacaciones" [(ngModel)]="holRequest.nrOfHolidays">
     </div>
     <div class="form-group">
         <label for="description">Descripción</label>
-        <textarea  type="text" class="form-control" id="description" placeholder="Breve descripción de la solicitud" rows="3"></textarea>
+        <textarea  type="text" class="form-control" name="description" id="description" placeholder="Breve descripción de la solicitud" rows="3" [(ngModel)]="holRequest.description"></textarea>
     </div>
-    <div class="form-group">
-        <label for="assignee">Asignar</label>
-        <select class="form-control" id="assignee">
-            <option>nrozo</option>
-            <option>jbarrez</option>
-            <option>trademakers</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+    <button type="submit" class="btn btn-primary" (click)='startProcess()'>Enviar Solicitud</button>
 </form>

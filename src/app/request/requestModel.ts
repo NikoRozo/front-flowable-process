@@ -1,6 +1,6 @@
-import { HolidayModel } from './holidayModel';
-
 export class RequestModel {
     assignee: string;
-    request: HolidayModel;
+    employee: string;
+    nrOfHolidays: number;
+    description: string;
 }

@@ -1,0 +1,28 @@
+<h1>Solicitud de Vacaciones</h1>
+
+<form>
+    <div class="form-group">
+      <label for="employee">Nombre del Funcionario</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="employeeHelp">
+      <small id="employeeHelp" class="form-text text-muted">Nombre del funcionario que pide las vacaciones.</small>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Días</span>
+        </div>
+        <input type="text" class="form-control" aria-label="El Valor debe se numerico" placeholder="de Vacaciones">
+    </div>
+    <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea  type="text" class="form-control" id="description" placeholder="Breve descripción de la solicitud" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="assignee">Asignar</label>
+        <select class="form-control" id="assignee">
+            <option>nrozo</option>
+            <option>jbarrez</option>
+            <option>trademakers</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+</form>

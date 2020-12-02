@@ -9,11 +9,13 @@ import { InboxComponent } from './inbox/inbox.component';
 import { MetricComponent } from './metric/metric.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: 'request', component: RequestComponent},
   {path: 'inbox', component: InboxComponent},
+  {path: 'inbox/:id', component: DetailComponent},
   {path: 'metric', component: MetricComponent}
 ];
 
@@ -22,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     RequestComponent,
     InboxComponent,
-    MetricComponent
+    MetricComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

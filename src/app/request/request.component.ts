@@ -23,8 +23,8 @@ export class RequestComponent implements OnInit {
   }
 
   startProcess(): void {
-    console.log('-----------------Log-----------------');
-    console.log('Solicitud de ' + this.holRequest);
+    // console.log('-----------------Log-----------------');
+    // console.log('Solicitud de ' + this.holRequest);
     this.requestService.startProcess(this.holRequest).subscribe(
       request => {
         this.router.navigate(['/']);
@@ -32,8 +32,8 @@ export class RequestComponent implements OnInit {
       },
       err => {
         this.errors = err.error.errors as string[];
-        console.error('Código del error desde el backend: ' + err.status);
-        console.error(err.error.errors);
+        // console.error('Código del error desde el backend: ' + err.status);
+        // console.error(err.error.errors);
       }
     );
   }

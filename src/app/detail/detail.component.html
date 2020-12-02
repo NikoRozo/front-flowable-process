@@ -1,0 +1,36 @@
+<h1>{{ title }}</h1>
+<h6>Tarea No. {{ taskId?.id }}</h6>
+
+<form #requestForm="ngForm">
+    <div class="form-group">
+      <label for="employee">Nombre del Funcionario</label>
+      <input type="text" class="form-control" name="employee" id="exampleInputEmail1" aria-describedby="employeeHelp" [(ngModel)]="detail.employee" readonly>
+      <small id="employeeHelp" class="form-text text-muted">Nombre del funcionario que pide las vacaciones.</small>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Días</span>
+        </div>
+        <input type="text" class="form-control" name="days" aria-label="El Valor debe se numerico" placeholder="de Vacaciones" [(ngModel)]="detail.nrOfHolidays" readonly>
+    </div>
+    <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea  type="text" class="form-control" name="description" id="description" placeholder="Breve descripción de la solicitud" rows="3" [(ngModel)]="detail.description" readonly></textarea>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="true" checked [(ngModel)]="ask">
+            <label class="form-check-label" for="exampleRadios1">
+              Arpobado
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="false" [(ngModel)]="ask">
+            <label class="form-check-label" for="exampleRadios2">
+              No Aprobado
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="complete()">Continuar</button>
+    <button type="submit" class="btn btn-primary" (click)="cancel()" >Cancelar</button>
+</form>

@@ -23,17 +23,13 @@ export class RequestComponent implements OnInit {
   }
 
   startProcess(): void {
-    // console.log('-----------------Log-----------------');
-    // console.log('Solicitud de ' + this.holRequest);
     this.requestService.startProcess(this.holRequest).subscribe(
       request => {
         this.router.navigate(['/']);
-        swal.fire('Nuevo Cliente',  `Caso asigando al usuario ${this.holRequest.assignee}`,  'success');
+        swal.fire('Nuevo Caso',  `Caso asigando al usuario ${this.holRequest.assignee}`,  'success');
       },
       err => {
         this.errors = err.error.errors as string[];
-        // console.error('Código del error desde el backend: ' + err.status);
-        // console.error(err.error.errors);
       }
     );
   }

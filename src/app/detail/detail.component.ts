@@ -14,6 +14,7 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   title = 'Detalle de la Tarea';
   taskId: any;
+  taskName: any;
   private sub: any;
   errors: string[];
   ask: string;
@@ -47,8 +48,10 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   assigTaskID(id: any): void {
     this.taskId = id;
+    this.taskName = name;
     console.log(this.taskId);
     console.log(this.taskId.id);
+    console.log(this.taskId.name);
   }
 
   complete(): void{
@@ -56,7 +59,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     console.log(this.approved.approved);
     this.requestService.completeTaskById(this.taskId.id, this.approved).subscribe(
       request => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/inbox']);
         swal.fire('Tarea Completada',  `La Tarea ${this.taskId.id} fue Completada`,  'success');
       },
       err => {

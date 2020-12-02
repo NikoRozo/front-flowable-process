@@ -12,6 +12,7 @@ import swal from 'sweetalert2';
 export class InboxComponent implements OnInit {
 
   tasks: TaskModel[];
+  assignee = '1';
 
   constructor(private requestService: RequestService,
               private router: Router,
@@ -19,7 +20,18 @@ export class InboxComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
-      this.requestService.getTasks('1').subscribe(
+      this.requestService.getTasks(this.assignee).subscribe(
+        response => {
+          this.tasks = response as TaskModel[];
+          console.log(response);
+        }
+      );
+    });
+  }
+
+  findTask(): void{
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.requestService.getTasks(this.assignee).subscribe(
         response => {
           this.tasks = response as TaskModel[];
           console.log(response);

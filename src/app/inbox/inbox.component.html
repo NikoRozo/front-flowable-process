@@ -1,5 +1,17 @@
 <h1>Lista de Tareas Pendientes</h1>
 
+<div class="form-grou">
+  <label for="assignee">Asignar</label>
+  <select class="form-control" name="assignee" id="assignee" [(ngModel)]="assignee">
+      <option value="1" selected >nrozo</option>
+      <option value="2">jbarrez</option>
+      <option value="3">trademakers</option>
+  </select>
+</div>
+<div class="form-grou">
+  <button type="submit" class="btn btn-primary" (click)="findTask()">Buscar</button>
+</div>
+
 <table class="table" *ngIf="tasks?.length > 0">
     <thead>
       <tr>
@@ -12,7 +24,7 @@
       <tr *ngFor="let task of tasks">
         <th scope="row"> {{task.id}} </th>
         <td> {{ task.name }} </td>
-        <td><button type="submit" class="btn btn-primary" routerLink="/inbox/{{task.id}}">Ver</button></td>
+        <td><button type="submit" class="btn btn-primary" routerLink="/inbox/{{task.name}}/{{task.id}}">Ver</button></td>
     </tr>
     </tbody>
   </table>

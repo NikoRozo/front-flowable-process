@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: 'request', component: RequestComponent},
   {path: 'inbox', component: InboxComponent},
-  {path: 'inbox/:id', component: DetailComponent},
+  {path: 'inbox/:name/:id', component: DetailComponent},
   {path: 'metric', component: MetricComponent}
 ];
 
